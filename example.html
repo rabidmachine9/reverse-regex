@@ -1,0 +1,41 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>rgrep</title>
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+	<script src="build/build.js"></script>
+	<style type="text/css" media="screen">
+		.regexText{
+			color:red;
+		}
+		.resultString{
+			color:blue;
+		}
+	</style>
+</head>
+<body>
+	<form id="regex-form">
+		<input type="text" size="40" name="regex">
+		<button type="submit">submit</button>
+	</form>	
+	<ul id="stringFromRegex"></ul>
+	<script type="text/javascript" charset="utf-8" >
+
+		$('#regex-form').submit(function(){
+			var ReverseRegex = require('reverse-regex');
+ 			var regex = this.regex.value;
+ 			var rgrep = new ReverseRegex(regex);
+ 			var ul = document.getElementById('stringFromRegex');
+ 			var firstLi = ul.firstChild;
+ 			var li = document.createElement('li'); 
+ 			var re = new RegExp(regex);
+ 			var trueOrFalse = re.test(rgrep.resultString);
+ 			li.innerHTML = '<span class="regexText">'+regex+'</span>'+' : '+'<span class="resultString">'+rgrep.resultString+ '</span> ' +  trueOrFalse;
+ 			if(li != undefined) ul.insertBefore(li,firstLi);
+ 			return false;
+		});
+	</script>
+</body>
+</html>
+

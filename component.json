@@ -1,0 +1,14 @@
+{
+  "name": "reverse-regex",
+  "repo": "rabidmachine9/reverse-regex",
+  "description": "take regex as input, return a valid string",
+  "version": "0.0.1",
+  "keywords": ["grep", "regex", "rgrep", "reverse-regex","string"],
+  "dependencies": {},
+  "development": {},
+  "license": "MIT",
+  "main": "index.js",
+  "scripts": [
+    "index.js"
+  ]
+}
